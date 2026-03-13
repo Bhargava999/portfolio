@@ -81,7 +81,7 @@ export default function Hero() {
           Available for opportunities
         </p>
 
-        <h1 className={`hero-title font-signature text-4xl sm:text-6xl lg:text-7xl font-bold text-theme-text leading-[1.1] mb-4 opacity-0`}>
+        <h1 className={`hero-title font-mono text-4xl sm:text-6xl lg:text-7xl ${titleWeight} text-theme-text leading-tight tracking-tight mb-4 opacity-0`}>
           Bhargava
           <br />
           <span className="text-theme-muted">Manikanta</span>
