@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { 
+    scroll-behavior: smooth; 
+  }
+
+  ::selection {
+    background-color: rgb(var(--color-accent));
+    color: rgb(var(--color-bg));
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background-color: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--color-muted));
+    border-radius: 9999px;
+  }
+
+  /* Global smooth transition for theme switching */
+  *, *::before, *::after {
+    transition-property: background-color, color, border-color, box-shadow, backdrop-filter, opacity;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    font-family: var(--font-body, 'Fira Code', monospace);
+    @apply antialiased;
+    background-color: var(--color-bg-val);
+    color: var(--color-text-val);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading, var(--font-body, 'Fira Code', monospace));
+  }
+}
+
+/* ===========================================================
+   COMPONENT UTILITIES
+   .theme-card — universal card/panel that adapts to the active style
+   .rounded-btn — button border-radius from style variables
+   =========================================================== */
+@layer components {
+  .theme-card {
+    background: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-radius: var(--card-radius);
+    transition: background-color 400ms, border-color 400ms, box-shadow 400ms, backdrop-filter 400ms, transform 300ms;
+  }
+
+  .theme-card:hover {
+    box-shadow: var(--card-shadow);
+  }
+
+  .rounded-btn {
+    border-radius: var(--btn-radius);
+  }
+}
+
+/* Liquid Glass: add blur to theme-cards */
+.style-liquid-glass .theme-card {
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  position: relative;
+}
+
+.style-liquid-glass .theme-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Brutalist: no radius, thick border if theme-card used */
+.style-brutalist .theme-card {
+  border: 3px solid rgb(var(--color-text));
+  box-shadow: 6px 6px 0px rgb(var(--color-text));
+  border-radius: 0;
+}
+
+.style-brutalist .theme-card:hover {
+  box-shadow: 8px 8px 0px rgb(var(--color-text));
+  transform: translate(-2px, -2px);
+}
+
+/* Dark Modern: subtle glow on hover */
+.style-dark-modern .theme-card:hover {
+  border-color: rgba(0,220,180,0.2);
+  box-shadow: 0 4px 24px rgba(0,220,180,0.08), 0 0 0 1px rgba(0,220,180,0.08);
+}
+
+/* Bento Grid: accent glow on hover */
+.style-bento-grid .theme-card:hover {
+  border-color: rgba(255,180,50,0.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transform: translateY(-1px);
+}
+
+/* Minimalist: very subtle hover lift */
+.style-minimalist .theme-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+
+/* ===========================================================
+   DESIGN STYLE 1: MINIMALIST (Default)
+   Large whitespace, thin borders, clean typography, very light shadows
+   =========================================================== */
+:root, .style-minimalist {
+  --color-bg: 252 252 252;
+  --color-text: 23 23 23;
+  --color-bg-val: #fcfcfc;
+  --color-text-val: #171717;
+  --color-accent: 38 38 38;
+  --color-muted: 140 140 140;
+  --color-border: 235 235 235;
+  --card-bg: rgba(255,255,255,0.6);
+  --card-border: 1px solid rgba(0,0,0,0.06);
+  --card-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  --card-radius: 2px;
+  --btn-radius: 1px;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ===========================================================
+   DESIGN STYLE 3: LIQUID GLASS
+   Glossy surfaces, smooth gradients, glass reflections
+   =========================================================== */
+.style-liquid-glass {
+  --color-bg: 20 18 30;
+  --color-text: 235 235 250;
+  --color-bg-val: #14121e;
+  --color-text-val: #ebebfa;
+  --color-accent: 160 120 255;
+  --color-muted: 130 120 170;
+  --color-border: 80 70 120;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: 1px solid rgba(255,255,255,0.08);
+  --card-shadow: 0 8px 40px rgba(100,60,200,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+  --card-radius: 20px;
+  --btn-radius: 14px;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* ===========================================================
+   DESIGN STYLE 5: BRUTALIST
+   Bold typography, strong color blocks, sharp edges
+   =========================================================== */
+.style-brutalist {
+  --color-bg: 255 255 255;
+  --color-text: 0 0 0;
+  --color-bg-val: #ffffff;
+  --color-text-val: #000000;
+  --color-accent: 255 30 30;
+  --color-muted: 80 80 80;
+  --color-border: 0 0 0;
+  --card-bg: rgba(255,255,255,1);
+  --card-border: 3px solid #000;
+  --card-shadow: 6px 6px 0px #000;
+  --card-radius: 0px;
+  --btn-radius: 0px;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Space Mono', monospace;
+}
+
+/* ===========================================================
+   DESIGN STYLE 6: DARK MODERN
+   Dark backgrounds, bright accent colors, high contrast UI
+   =========================================================== */
+.style-dark-modern {
+  --color-bg: 8 8 12;
+  --color-text: 240 240 245;
+  --color-bg-val: #08080c;
+  --color-text-val: #f0f0f5;
+  --color-accent: 0 220 180;
+  --color-muted: 100 105 115;
+  --color-border: 30 32 40;
+  --card-bg: rgba(18,18,24,0.9);
+  --card-border: 1px solid rgba(255,255,255,0.06);
+  --card-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --card-radius: 10px;
+  --btn-radius: 8px;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ===========================================================
+   DESIGN STYLE 7: BENTO GRID
+   Card-based layout, different card sizes, strong visual hierarchy
+   =========================================================== */
+.style-bento-grid {
+  --color-bg: 15 15 18;
+  --color-text: 230 230 235;
+  --color-bg-val: #0f0f12;
+  --color-text-val: #e6e6eb;
+  --color-accent: 255 180 50;
+  --color-muted: 115 115 125;
+  --color-border: 38 38 45;
+  --card-bg: rgba(25,25,32,0.95);
+  --card-border: 1px solid rgba(255,255,255,0.05);
+  --card-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  --card-radius: 14px;
+  --btn-radius: 10px;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+
+/* ===========================================================
+   STYLE-SPECIFIC DEEP OVERRIDES
+   These rules enhance each style beyond just CSS variables
+   =========================================================== */
+
+/* --- MINIMALIST overrides --- */
+.style-minimalist header {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.style-minimalist .glass-panel,
+.style-minimalist .project-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+}
+
+.style-minimalist .project-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* --- LIQUID GLASS overrides --- */
+.style-liquid-glass header {
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  background: rgba(20,18,30,0.5) !important;
+  border-bottom-color: rgba(160,120,255,0.12) !important;
+}
+
+.style-liquid-glass .glass-panel,
+.style-liquid-glass .project-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.style-liquid-glass .project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  z-index: 1;
+}
+
+.style-liquid-glass .project-card:hover {
+  background: rgba(160,120,255,0.06);
+  box-shadow: 0 12px 48px rgba(160,120,255,0.18), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+.style-liquid-glass section#contact a[href] {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--card-radius);
+}
+
+/* --- BRUTALIST overrides --- */
+.style-brutalist header {
+  background: var(--color-bg-val) !important;
+  border-bottom: 3px solid #000 !important;
+}
+
+.style-brutalist .glass-panel,
+.style-brutalist .project-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+}
+
+.style-brutalist .project-card:hover {
+  box-shadow: 8px 8px 0px #000;
+  transform: translate(-2px, -2px);
+}
+
+.style-brutalist section#contact a[href] {
+  border: 3px solid #000 !important;
+  box-shadow: 4px 4px 0px #000;
+  border-radius: 0;
+}
+
+.style-brutalist section#contact a[href]:hover {
+  box-shadow: 6px 6px 0px #000;
+  transform: translate(-2px, -2px);
+}
+
+/* Brutalist typography boost */
+.style-brutalist h1 {
+  font-weight: 800 !important;
+  letter-spacing: -0.03em;
+}
+
+.style-brutalist h2 {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.style-brutalist .hero-intro,
+.style-brutalist p[class*="tracking-widest"] {
+  font-weight: 700;
+}
+
+/* Brutalist divider */
+.style-brutalist .h-px {
+  height: 3px !important;
+  background-color: rgb(var(--color-border)) !important;
+}
+
+/* --- DARK MODERN overrides --- */
+.style-dark-modern header {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(8,8,12,0.85) !important;
+  border-bottom-color: rgba(0,220,180,0.1) !important;
+}
+
+.style-dark-modern .glass-panel,
+.style-dark-modern .project-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+}
+
+.style-dark-modern .project-card:hover {
+  border-color: rgba(0,220,180,0.3);
+  box-shadow: 0 4px 24px rgba(0,220,180,0.1), 0 0 0 1px rgba(0,220,180,0.1);
+}
+
+.style-dark-modern section#contact a[href] {
+  border-radius: var(--card-radius);
+}
+
+.style-dark-modern section#contact a[href]:hover {
+  border-color: rgba(0,220,180,0.3) !important;
+  box-shadow: 0 0 20px rgba(0,220,180,0.08);
+}
+
+/* Accent glow on hover for buttons */
+.style-dark-modern a[href="#projects"]:hover {
+  box-shadow: 0 0 20px rgba(0,220,180,0.3);
+}
+
+/* --- BENTO GRID overrides --- */
+.style-bento-grid header {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(15,15,18,0.9) !important;
+}
+
+.style-bento-grid .glass-panel,
+.style-bento-grid .project-card {
+  background: var(--card-bg);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--card-radius);
+}
+
+.style-bento-grid .project-card:hover {
+  background: rgba(255,180,50,0.06);
+  border-color: rgba(255,180,50,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.style-bento-grid section#contact a[href] {
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+}
+
+.style-bento-grid section#contact a[href]:hover {
+  border-color: rgba(255,180,50,0.3) !important;
+  background: rgba(255,180,50,0.05);
+}
+
+/* Bento emphasis: make project cards feel like bento tiles */
+.style-bento-grid .projects-grid {
+  gap: 6px;
+}
+
+.style-bento-grid .project-card {
+  padding: 1.5rem !important;
+}
+
+/* Bento stats cards */
+.style-bento-grid .about-stat {
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 1rem;
+}
+
+
+/* ===========================================================
+   AMBIENT BACKGROUND ADAPTATIONS
+   The App.jsx has fixed ambient gradient blobs — adapt their 
+   blend mode per style
+   =========================================================== */
+.style-minimalist .fixed.inset-0 {
+  opacity: 0.08 !important;
+}
+
+.style-liquid-glass .fixed.inset-0 {
+  opacity: 0.3 !important;
+  mix-blend-mode: screen;
+}
+
+.style-brutalist .fixed.inset-0 {
+  opacity: 0 !important;
+}
+
+.style-dark-modern .fixed.inset-0 {
+  opacity: 0.15 !important;
+  mix-blend-mode: screen;
+}
+
+.style-bento-grid .fixed.inset-0 {
+  opacity: 0.12 !important;
+  mix-blend-mode: screen;
+}
+
+
+/* ===========================================================
+   EXPERIENCE SECTION TIMELINE ADAPTATIONS
+   =========================================================== */
+.style-brutalist .about-stats-container {
+  border-top: 3px solid #000 !important;
+}
+
+
+/* ===========================================================
+   TAG / PILL ADAPTATIONS
+   Skill tags and project tags per style
+   =========================================================== */
+.style-brutalist span[class*="border-theme-border"][class*="px-2"] {
+  border: 2px solid #000 !important;
+  border-radius: 0 !important;
+  font-weight: 700;
+}
+
+.style-liquid-glass span[class*="border-theme-border"][class*="px-2"] {
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+}
+
+.style-dark-modern span[class*="border-theme-border"][class*="px-2"] {
+  border-radius: 6px;
+}
+
+.style-bento-grid span[class*="border-theme-border"][class*="px-2"] {
+  border-radius: 6px;
+  background: rgba(255,180,50,0.06);
+}
+
+
+/* ===========================================================
+   FOOTER ADAPTATIONS
+   =========================================================== */
+.style-brutalist footer {
+  border-top: 3px solid #000 !important;
+}
+
+
+/* ===========================================================
+   BASE ANIMATIONS (unchanged from original)
+   =========================================================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+.animate-fade-in { animation: fadeIn 0.7s ease forwards; opacity: 0; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
