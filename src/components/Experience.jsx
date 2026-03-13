@@ -7,10 +7,11 @@ import { useTheme } from '../ThemeContext'
 gsap.registerPlugin(ScrollTrigger)
 
 const items = [
-  'Built and maintained 300+ REST API endpoints supporting multiple enterprise platforms.',
-  'Built backend services in ASP.NET Core for workforce operations across 80+ factory sites.',
-  'Worked across the full stack — from PostgreSQL schema design to React interfaces.',
-  'Took four platforms from first commit to production.',
+  'Built and maintained 150+ REST API endpoints across workforce management, education, assessment, and API testing platforms.',
+  'Automated payroll processing with PostgreSQL stored procedures that calculate payments from attendance and overtime data imported via Excel.',
+  'Implemented KYC based worker onboarding that validates Aadhaar, PAN, and bank details to catch duplicates before payroll runs.',
+  'Integrated Judge0 for live code execution in the assessment platform; locked down exams with IP whitelisting and time restricted links.',
+  'Worked across the full stack, from PostgreSQL schema design and stored procedures to EF Core and React frontends.',
 ]
 
 export default function Experience() {

@@ -11,26 +11,26 @@ const projects = [
   {
     index: '01',
     title: 'Enterprise Workforce Management ERP',
-    description: 'Backend system supporting workforce operations for 100,000+ workers across 80 factory locations. Built with ASP.NET Core and PostgreSQL.',
-    tags: ['ASP.NET Core', 'PostgreSQL', 'C#', 'REST API'],
+    description: 'Backend for a workforce ERP tracking 100,000+ workers across 80 factory locations. Handles onboarding with KYC checks (Aadhaar, PAN, bank details), automates payroll through PostgreSQL stored procedures, and manages role-based workflows for supervisors, field officers, and office staff.',
+    tags: ['ASP.NET Core', 'C#', 'EF Core', 'PostgreSQL', 'JWT', 'React'],
   },
   {
     index: '02',
     title: 'Online Assessment Platform',
-    description: 'Online testing platform for MCQ exams and coding assessments. Supports multiple concurrent test sessions.',
-    tags: ['ASP.NET Core', 'React', 'MSSQL', 'EF Core'],
+    description: 'Placement testing platform used by training providers across partner colleges. Supports MCQ, aptitude, reasoning, and coding problems — coding submissions run through Judge0. Exam access locked down with IP whitelisting, access codes, and time-restricted links.',
+    tags: ['ASP.NET Core', 'C#', 'PostgreSQL', 'Redis', 'JWT', 'Judge0'],
   },
   {
     index: '03',
     title: 'Education ERP',
-    description: 'Manages student admissions, attendance, and academic reports for multiple institutions.',
-    tags: ['ASP.NET Core', 'PostgreSQL', 'React', 'C#'],
+    description: 'Multi-branch education ERP covering the full student lifecycle — admissions, enrollment, attendance, promotions, and performance reports. Also handles payroll, receipts, and internal announcements across branches.',
+    tags: ['ASP.NET Core (.NET 8)', 'C#', 'EF Core', 'PostgreSQL', 'RBAC'],
   },
   {
     index: '04',
     title: 'API Testing Platform',
-    description: 'Reads OpenAPI specs and auto-generates test suites for every endpoint. Cuts down on writing tests by hand.',
-    tags: ['C#', 'OpenAPI', 'ASP.NET Core', 'Automation'],
+    description: 'Parses OpenAPI specs (JSON/YAML) and auto-generates positive, negative, and edge-case test scenarios. Testers can modify payloads, inject dynamic data, and run suites against multiple endpoints. Generates structured failure reports.',
+    tags: ['ASP.NET Core', 'C#', 'EF Core', 'MSSQL', 'React'],
   },
 ]
 
