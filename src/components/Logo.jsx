@@ -8,7 +8,7 @@ export default function Logo() {
   return (
     <div className="flex flex-col pt-1 pb-1 group cursor-pointer selection:bg-transparent">
       <div 
-        className={`font-signature text-3xl sm:text-[2.2rem] leading-none text-theme-text transition-colors duration-300 group-hover:text-theme-accent pl-1 font-bold`}
+        className={`font-signature text-3xl sm:text-[2.2rem] leading-none text-theme-text transition-colors duration-300 group-hover:text-theme-accent pl-1 font-[200] font-custom-variations`}
         style={{ transform: 'none' }}
       >
         Bhargava

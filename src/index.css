@@ -38,6 +38,12 @@
   }
 }
 
+@layer utilities {
+  .font-custom-variations {
+    font-variation-settings: "slnt" -8, "CRSV" 0.5, "ELSH" 0, "ELXP" 0;
+  }
+}
+
 /* ===========================================================
    COMPONENT UTILITIES
    .theme-card — universal card/panel that adapts to the active style

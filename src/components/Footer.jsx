@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p className={`font-mono text-xs text-theme-muted flex items-center gap-2 ${isBrutalist ? 'font-bold uppercase' : ''}`}>
           <span className="text-theme-accent">{'>'}</span>
-          <span className="font-signature text-xl normal-case font-bold text-theme-text">Bhargava Mamidisetti</span>
+          <span className="font-signature text-xl normal-case font-[200] font-custom-variations text-theme-text">Bhargava Mamidisetti</span>
           <span>© {new Date().getFullYear()}</span>
         </p>
         <p className={`font-mono text-xs text-theme-muted ${isBrutalist ? 'font-bold uppercase' : ''}`}>
