@@ -8,9 +8,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 const items = [
   'Built and maintained 300+ REST API endpoints supporting multiple enterprise platforms.',
-  'Designed scalable backend systems in ASP.NET Core serving large-scale industrial operations.',
+  'Built backend services in ASP.NET Core for workforce operations across 80+ factory sites.',
   'Worked across the full stack — from PostgreSQL schema design to React interfaces.',
-  'Delivered four production enterprise platforms from development to deployment.',
+  'Took four platforms from first commit to production.',
 ]
 
 export default function Experience() {

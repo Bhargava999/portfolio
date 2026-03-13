@@ -17,19 +17,19 @@ const projects = [
   {
     index: '02',
     title: 'Online Assessment Platform',
-    description: 'Online testing platform supporting MCQ exams and coding assessments. Handles concurrent test sessions with reliable result processing.',
+    description: 'Online testing platform for MCQ exams and coding assessments. Supports multiple concurrent test sessions.',
     tags: ['ASP.NET Core', 'React', 'MSSQL', 'EF Core'],
   },
   {
     index: '03',
     title: 'Education ERP',
-    description: 'System managing student admissions, attendance tracking, and academic reporting across institutions.',
+    description: 'Manages student admissions, attendance, and academic reports for multiple institutions.',
     tags: ['ASP.NET Core', 'PostgreSQL', 'React', 'C#'],
   },
   {
     index: '04',
     title: 'API Testing Platform',
-    description: 'Tool that parses OpenAPI specifications and automatically generates comprehensive API test suites, reducing manual QA effort.',
+    description: 'Reads OpenAPI specs and auto-generates test suites for every endpoint. Cuts down on writing tests by hand.',
     tags: ['C#', 'OpenAPI', 'ASP.NET Core', 'Automation'],
   },
 ]

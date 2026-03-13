@@ -97,7 +97,7 @@ export default function Hero() {
         </div>
 
         <p className="hero-desc text-base text-theme-muted max-w-xl leading-relaxed mb-12 opacity-0">
-          Full Stack .NET Developer focused on scalable backend systems and enterprise platforms.
+          I build backend systems with .NET and wire them up end-to-end — databases, APIs, frontends.
         </p>
 
         <div className="hero-buttons flex flex-wrap gap-4">

@@ -118,7 +118,7 @@ export default function Contact() {
             <h2 className="font-mono text-2xl font-light text-theme-text opacity-0">Contact</h2>
           </div>
           <p className="contact-desc font-mono text-xs text-theme-muted leading-relaxed mb-6 opacity-0">
-            Open to new opportunities. Feel free to reach out directly — I respond within a day.
+            Open to opportunities. I usually reply within a day.
           </p>
           {contactLinks}
         </div>
@@ -137,7 +137,7 @@ export default function Contact() {
 
         <div>
           <p className="contact-desc font-mono text-xs text-theme-muted leading-relaxed mb-8 opacity-0">
-            Open to new opportunities. Feel free to reach out directly — I respond within a day.
+            Open to opportunities. I usually reply within a day.
           </p>
           {contactLinks}
         </div>

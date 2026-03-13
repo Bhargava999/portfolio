@@ -130,21 +130,21 @@ function AboutParagraphs() {
       <p className="text-theme-muted leading-relaxed text-sm opacity-0">
         I'm a Full Stack .NET Developer with{' '}
         <strong className="text-theme-text font-medium">2+ years</strong> of professional
-        experience building enterprise-grade systems. My work centers on designing robust backend architectures
-        using <strong className="text-theme-text font-medium">ASP.NET Core</strong> and{' '}
-        <strong className="text-theme-text font-medium">C#</strong>, paired with{' '}
-        <strong className="text-theme-text font-medium">PostgreSQL</strong> and{' '}
-        <strong className="text-theme-text font-medium">MSSQL</strong> for reliable data persistence.
+        experience. Most of my time goes into building backends with{' '}
+        <strong className="text-theme-text font-medium">ASP.NET Core</strong> and{' '}
+        <strong className="text-theme-text font-medium">C#</strong>, hooked up to{' '}
+        <strong className="text-theme-text font-medium">PostgreSQL</strong> or{' '}
+        <strong className="text-theme-text font-medium">MSSQL</strong>.
       </p>
       <p className="text-theme-muted leading-relaxed text-sm opacity-0">
-        I've shipped four production enterprise platforms — spanning workforce management, education ERP,
-        online assessment, and API testing tooling — serving operations at scale. On the frontend, I work
-        with <strong className="text-theme-text font-medium">React</strong> and{' '}
-        <strong className="text-theme-text font-medium">Tailwind CSS</strong> to build clean,
-        functional interfaces that pair tightly with the APIs I build.
+        I've shipped four production platforms so far — workforce management, education ERP,
+        online assessment, and an API testing tool. On the frontend side, I use{' '}
+        <strong className="text-theme-text font-medium">React</strong> and{' '}
+        <strong className="text-theme-text font-medium">Tailwind CSS</strong>. I like building
+        the UI close to the API layer so things stay in sync.
       </p>
       <p className="text-theme-muted leading-relaxed text-sm opacity-0">
-        I care about clean architecture, maintainable codebases, and systems that hold up under real-world load.
+        I'm particular about keeping code organized and writing systems that don't break when traffic spikes.
       </p>
     </>
   )

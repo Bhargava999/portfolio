@@ -7,9 +7,9 @@ import { useTheme } from '../ThemeContext'
 gsap.registerPlugin(ScrollTrigger)
 
 const achievements = [
-  { metric: '300+', label: 'REST APIs developed', detail: 'Across multiple enterprise-grade production platforms' },
+  { metric: '300+', label: 'REST APIs developed', detail: 'Across four production platforms' },
   { metric: '100K+', label: 'Workers supported', detail: 'Workforce management system spanning 80 factory locations' },
-  { metric: '4', label: 'Enterprise platforms delivered', detail: 'From workforce ERP to education systems and API tooling' },
+  { metric: '4', label: 'Enterprise platforms delivered', detail: 'Workforce ERP, education system, assessment platform, and API test tool' },
 ]
 
 export default function Achievements() {
