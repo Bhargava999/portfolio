@@ -1,4 +1,3 @@
-import { ArrowDown } from 'lucide-react'
 import { useRef } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
@@ -40,21 +39,6 @@ export default function Hero() {
       { opacity: 1, y: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out' },
       '-=0.4'
     )
-    .fromTo(
-      '.hero-scroll',
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: 'power2.inOut' },
-      '-=0.2'
-    )
-    
-    gsap.to('.hero-scroll svg', {
-      y: 10,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power1.inOut',
-      delay: 2
-    })
   }, { scope: containerRef })
 
   // Style-aware wrapper & card classes
@@ -97,7 +81,7 @@ export default function Hero() {
           Available for opportunities
         </p>
 
-        <h1 className={`hero-title font-mono text-4xl sm:text-6xl lg:text-7xl ${titleWeight} text-theme-text leading-tight tracking-tight mb-4 opacity-0`}>
+        <h1 className={`hero-title font-signature text-4xl sm:text-6xl lg:text-7xl font-bold text-theme-text leading-[1.1] mb-4 opacity-0`}>
           Bhargava
           <br />
           <span className="text-theme-muted">Manikanta</span>
@@ -126,10 +110,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero-scroll opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
-        <span className="font-mono text-xs text-theme-muted tracking-widest uppercase">scroll</span>
-        <ArrowDown size={14} className="text-theme-muted" />
-      </div>
     </section>
   )
 }

@@ -1,4 +1,10 @@
+import { useRef } from 'react'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useTheme } from '../ThemeContext'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const items = [
   'Built and maintained 300+ REST API endpoints supporting multiple enterprise platforms.',
@@ -8,22 +14,75 @@ const items = [
 ]
 
 export default function Experience() {
+  const containerRef = useRef(null)
   const { designStyle } = useTheme()
+
+  useGSAP(() => {
+    gsap.fromTo(
+      '.exp-header > *',
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 80%',
+          once: true,
+        }
+      }
+    )
+
+    gsap.fromTo(
+      '.exp-content',
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.exp-content',
+          start: 'top 85%',
+          once: true,
+        }
+      }
+    )
+
+    gsap.fromTo(
+      '.exp-item',
+      { opacity: 0, x: -15 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.exp-content',
+          start: 'top 80%',
+          once: true,
+        }
+      }
+    )
+  }, { scope: containerRef })
 
   const isBrutalist = designStyle === 'brutalist'
   const isCard = ['liquid-glass', 'dark-modern', 'bento-grid'].includes(designStyle)
   const isBento = designStyle === 'bento-grid'
 
   const headerContent = (
-    <div>
+    <div className="exp-header">
       {isBrutalist && <div className="w-10 h-1.5 bg-theme-accent mb-3" />}
-      <p className={`font-mono text-xs text-theme-accent tracking-widest uppercase mb-2 ${isBrutalist ? 'font-bold' : ''}`}>04</p>
-      <h2 className={`font-mono text-2xl text-theme-text ${isBrutalist ? 'font-bold uppercase' : 'font-light'}`}>Experience</h2>
+      <p className={`font-mono text-xs text-theme-accent tracking-widest uppercase mb-2 opacity-0 ${isBrutalist ? 'font-bold' : ''}`}>04</p>
+      <h2 className={`font-mono text-2xl text-theme-text opacity-0 ${isBrutalist ? 'font-bold uppercase' : 'font-light'}`}>Experience</h2>
     </div>
   )
 
   const timelineContent = (
-    <div className={isCard ? 'theme-card p-6 sm:p-8' : 'relative'}>
+    <div className={`exp-content opacity-0 ${isCard ? 'theme-card p-6 sm:p-8' : 'relative'}`}>
       {/* Timeline line — hide for card styles since the card provides visual structure */}
       {!isCard && <div className="absolute left-0 top-0 bottom-0 w-px bg-theme-border hidden sm:block" />}
 
@@ -47,7 +106,7 @@ export default function Experience() {
         </div>
         <ul className="space-y-3">
           {items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-xs font-mono text-theme-muted">
+            <li key={i} className="exp-item flex items-start gap-3 text-xs font-mono text-theme-muted opacity-0">
               <span className={`text-theme-accent mt-0.5 flex-shrink-0 ${isBrutalist ? 'font-bold' : ''}`}>
                 {isBrutalist ? '▸' : '—'}
               </span>
@@ -62,11 +121,11 @@ export default function Experience() {
   // Bento: full-width card approach
   if (isBento) {
     return (
-      <section id="experience" className="py-24 px-6 max-w-5xl mx-auto">
+      <section id="experience" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
         <div className="theme-card p-8 sm:p-10">
-          <div className="mb-8">
-            <p className="font-mono text-xs text-theme-accent tracking-widest uppercase mb-2">04</p>
-            <h2 className="font-mono text-2xl font-light text-theme-text">Experience</h2>
+          <div className="exp-header mb-8">
+            <p className="font-mono text-xs text-theme-accent tracking-widest uppercase mb-2 opacity-0">04</p>
+            <h2 className="font-mono text-2xl font-light text-theme-text opacity-0">Experience</h2>
           </div>
           {timelineContent}
         </div>
@@ -75,7 +134,7 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-24 px-6 max-w-5xl mx-auto">
+    <section id="experience" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
       <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
         {headerContent}
         {timelineContent}

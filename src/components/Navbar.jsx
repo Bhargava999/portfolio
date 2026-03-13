@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react'
 import { Palette, Check, ChevronDown } from 'lucide-react'
 import { useTheme, DESIGN_STYLES } from '../ThemeContext'
+import Logo from './Logo'
+import { useState, useRef, useEffect } from 'react'
 
 const links = [
   { label: 'About', href: '#about' },
@@ -61,11 +62,13 @@ export default function Navbar() {
 
   const handleStyleChange = (s) => {
     // Temporarily disable smooth scroll to instantly snap to top
+    // eslint-disable-next-line react-hooks/immutability
     document.documentElement.style.scrollBehavior = 'auto'
     window.scrollTo(0, 0)
     
     // Restore smooth scroll after a tiny delay
     setTimeout(() => {
+      // eslint-disable-next-line react-hooks/immutability
       document.documentElement.style.scrollBehavior = ''
     }, 50)
 
@@ -85,9 +88,9 @@ export default function Navbar() {
         <a
           href="#hero"
           onClick={(e) => handleSmoothScroll(e, '#hero')}
-          className="font-mono text-sm text-theme-muted hover:text-theme-text transition-colors"
+          className="transition-transform duration-300 hover:-translate-y-0.5"
         >
-          <span className="text-theme-accent">{'>'}</span> bhargava.mm
+          <Logo />
         </a>
 
         <div className="flex items-center gap-4 sm:gap-6">
@@ -133,7 +136,7 @@ export default function Navbar() {
                   }}
                 >
                   <div className="px-4 py-2 text-[10px] font-mono text-theme-muted uppercase tracking-widest border-b border-theme-border/50 mb-1 opacity-70">
-                    Choose your taste
+                    Choose your Design
                   </div>
                   {DESIGN_STYLES.map((s) => {
                     const meta = STYLE_META[s]

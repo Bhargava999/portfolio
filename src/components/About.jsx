@@ -29,6 +29,7 @@ export default function About() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
+          once: true,
         }
       }
     )
@@ -45,6 +46,7 @@ export default function About() {
         scrollTrigger: {
           trigger: '.about-content',
           start: 'top 85%',
+          once: true,
         }
       }
     )
@@ -61,6 +63,7 @@ export default function About() {
         scrollTrigger: {
           trigger: '.about-stats-container',
           start: 'top 90%',
+          once: true,
         }
       }
     )

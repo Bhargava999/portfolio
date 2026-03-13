@@ -4,6 +4,8 @@ import {
   Sparkles,
   Bot,
   MousePointerClick,
+  LayoutGrid,
+  Unplug,
   Database,
   DatabaseZap,
   ServerCog,
@@ -32,9 +34,10 @@ const skillIcons = {
   'C#': <Hash size={18} />,
   'REST APIs': <Globe size={18} />,
   'Entity Framework Core': <Workflow size={18} />,
+  'MVC': <LayoutGrid size={18} />,
+  'Web API': <Unplug size={18} />,
   'PostgreSQL': <DatabaseZap size={18} />,
-  'MSSQL': <ServerCog size={18} />,
-  'Stored Procedures': <TableProperties size={18} />,
+  'Microsoft SQL Server': <ServerCog size={18} />,
   'React': <Atom size={18} />,
   'HTML': <FileCode size={18} />,
   'Tailwind CSS': <Palette size={18} />,
@@ -47,8 +50,8 @@ const skillIcons = {
 }
 
 const skillGroups = [
-  { category: 'Backend', skills: ['ASP.NET Core', 'C#', 'REST APIs', 'Entity Framework Core'] },
-  { category: 'Database', skills: ['PostgreSQL', 'MSSQL', 'Stored Procedures'] },
+  { category: 'Backend', skills: ['ASP.NET Core', 'C#', 'REST APIs', 'Entity Framework Core', 'MVC', 'Web API'] },
+  { category: 'Database', skills: ['PostgreSQL', 'Microsoft SQL Server'] },
   { category: 'Frontend', skills: ['React', 'HTML', 'Tailwind CSS'] },
   { category: 'Tools', skills: ['Git', 'GitHub', 'Visual Studio', 'Antigravity', 'Claude Code', 'Cursor'] },
 ]
@@ -71,6 +74,7 @@ export default function Skills() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
+          once: true,
         }
       }
     )

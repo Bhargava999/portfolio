@@ -110,7 +110,7 @@ export default function TerminalLoader({ onComplete }) {
             marginBottom: 6,
             transition: 'none',
           }}>
-            LOADING TASTE
+            LOADING DESIGN
           </p>
           <p style={{
             fontFamily: c.font,

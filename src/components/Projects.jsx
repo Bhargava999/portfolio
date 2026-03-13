@@ -86,6 +86,7 @@ export default function Projects() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%',
+          once: true,
         }
       }
     )
@@ -102,6 +103,7 @@ export default function Projects() {
         scrollTrigger: {
           trigger: '.projects-grid',
           start: 'top 85%',
+          once: true,
         }
       }
     )

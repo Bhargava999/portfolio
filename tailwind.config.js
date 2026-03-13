@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         mono: ['"Fira Code"', 'monospace'],
         sans: ['"Fira Code"', 'monospace'],
+        signature: ['"Great Vibes"', 'cursive'],
       },
       colors: {
         theme: {
