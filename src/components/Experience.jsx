@@ -7,7 +7,7 @@ import { useTheme } from '../ThemeContext'
 gsap.registerPlugin(ScrollTrigger)
 
 const items = [
-  'Built and maintained 150+ REST API endpoints across workforce management, education, assessment, and API testing platforms.',
+  'Built and maintained 300+ REST API endpoints across workforce management, education, assessment, and API testing platforms.',
   'Automated payroll processing with PostgreSQL stored procedures that calculate payments from attendance and overtime data imported via Excel.',
   'Implemented KYC based worker onboarding that validates Aadhaar, PAN, and bank details to catch duplicates before payroll runs.',
   'Integrated Judge0 for live code execution in the assessment platform; locked down exams with IP whitelisting and time restricted links.',
