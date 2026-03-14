@@ -87,7 +87,7 @@ export default function Skills() {
   // Bento: full-width card with internal grid of category tiles
   if (isBento) {
     return (
-      <section id="skills" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+      <section id="skills" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
         <div className="theme-card p-8 sm:p-10">
           <div className="mb-8">
             <p className="font-mono text-xs text-theme-accent tracking-widest uppercase mb-2">02</p>
@@ -121,7 +121,7 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+    <section id="skills" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
       <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
         <div>
           {isBrutalist && <div className="w-10 h-1.5 bg-theme-accent mb-3" />}

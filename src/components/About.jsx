@@ -74,7 +74,7 @@ export default function About() {
   const isBento = designStyle === 'bento-grid'
 
   return (
-    <section id="about" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+    <section id="about" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
       {/* Bento Grid: wrap entire section in a card */}
       {isBento ? (
         <div className="theme-card p-8 sm:p-10">

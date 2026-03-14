@@ -122,7 +122,7 @@ export default function Experience() {
   // Bento: full-width card approach
   if (isBento) {
     return (
-      <section id="experience" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+      <section id="experience" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
         <div className="theme-card p-8 sm:p-10">
           <div className="exp-header mb-8">
             <p className="font-mono text-xs text-theme-accent tracking-widest uppercase mb-2 opacity-0">04</p>
@@ -135,7 +135,7 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+    <section id="experience" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
       <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
         {headerContent}
         {timelineContent}

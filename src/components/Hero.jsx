@@ -69,15 +69,15 @@ export default function Hero() {
     <section
       id="hero"
       ref={containerRef}
-      className="min-h-screen flex flex-col justify-center px-6 max-w-5xl mx-auto"
+      className="min-h-[100svh] flex flex-col justify-center pt-24 pb-12 px-6 max-w-5xl mx-auto"
     >
-      <div className={`pt-20 ${cardClass}`}>
+      <div className={cardClass}>
         {/* Brutalist decorative accent */}
         {isBrutalist && (
           <div className="hero-intro w-16 h-2 bg-theme-accent mb-6" />
         )}
 
-        <p className={`hero-intro font-mono text-xs text-theme-accent tracking-widest uppercase mb-6 opacity-0 ${isBrutalist ? 'font-bold text-sm' : ''}`}>
+        <p className={`hero-intro font-mono text-xs text-theme-accent tracking-widest uppercase mb-4 opacity-0 ${isBrutalist ? 'font-bold text-sm' : ''}`}>
           Available for opportunities
         </p>
 
@@ -96,7 +96,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <p className="hero-desc text-base text-theme-muted max-w-xl leading-relaxed mb-12 opacity-0">
+        <p className="hero-desc text-base text-theme-muted max-w-xl leading-relaxed mb-8 opacity-0">
           I build backend systems with .NET and wire them up end-to-end — databases, APIs, frontends.
         </p>
 

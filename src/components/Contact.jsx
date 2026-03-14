@@ -111,7 +111,7 @@ export default function Contact() {
   // Bento: full-width card approach
   if (isBento) {
     return (
-      <section id="contact" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+      <section id="contact" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
         <div className="theme-card p-8 sm:p-10">
           <div className="contact-header mb-8">
             <p className="font-mono text-xs text-theme-accent tracking-widest uppercase mb-2 opacity-0">06</p>
@@ -127,7 +127,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+    <section id="contact" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
       <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
         <div className="contact-header">
           {isBrutalist && <div className="w-10 h-1.5 bg-theme-accent mb-3" />}

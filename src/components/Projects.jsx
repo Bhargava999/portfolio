@@ -115,7 +115,7 @@ export default function Projects() {
   // Bento Grid: full-width section with cards in a bento layout
   if (isBento) {
     return (
-      <section id="projects" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+      <section id="projects" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
         <div className="projects-header mb-8">
           <p className="font-mono text-xs text-theme-accent tracking-widest uppercase mb-2 opacity-0">03</p>
           <h2 className="font-mono text-2xl font-light text-theme-text opacity-0">Projects</h2>
@@ -130,7 +130,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" ref={containerRef} className="py-24 px-6 max-w-5xl mx-auto">
+    <section id="projects" ref={containerRef} className="py-12 md:py-16 lg:py-20 px-6 max-w-5xl mx-auto">
       <div className="grid md:grid-cols-[1fr_2fr] gap-16 items-start">
         <div className="projects-header">
           {isBrutalist && <div className="w-10 h-1.5 bg-theme-accent mb-3" />}
